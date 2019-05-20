@@ -1,0 +1,810 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+
+body
+	position: relative
+	z-index: 0
+	display: flex
+	flex-flow: column nowrap
+	width: 100%
+	font-size: 16px
+	min-width: 320px
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	&.ishome
+		.site-header
+			display: flex
+			flex-flow: column nowrap
+			min-height: 710px
+			height: 100%
+			width: 100%
+			background-color: $dark
+			background: no-repeat center
+			background-size: cover
+
+//-------preloader-------//
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+.preloader
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 100
+	background-color: #1086C3
+	.pulse
+		position: relative
+		left: 50%
+		top: 50vh
+		margin:
+			left: -30px
+			top: -30px
+		&::before, &::after
+			content: ''
+			border: 5px solid #fff
+			width: 100px
+			height: 100px
+			border-radius: 500px
+			position: absolute
+		&::before
+			animation: pulse-outer .8s ease-in infinite
+		&::after
+			animation: pulse-inner .8s linear infinite
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+@keyframes pulse-inner
+	0%
+		@include opacity(0)
+		transform: scale(0)
+	100%
+		@include opacity(100)
+		transform: scale(1)
+//------finish---preloader---------//
+
+// ----------------menu-hamburger----------------
+
+.s-menu
+	display: none
+	height: 40px
+	width: 40px
+	position: absolute
+	right: 25px
+	top: 33px
+	z-index: 10
+	.menu-main
+		display: flex
+		flex-flow: column
+		position: relative
+		align-items: flex-end
+		.menu-social-btn
+			display: flex
+			margin-right: 50px
+			.menu-social
+				display: flex
+				justify-content: center
+				align-items: flex-start
+				transition: 0.5s
+				transform: scaleX(0) 
+				transform-origin: right
+				opacity: 0
+				a:hover
+					background-color: #1C7EBB
+					transition: none
+					color: #FFF
+				a:nth-child(2):hover
+					background-color: #7E3EB0
+				a:nth-child(3):hover
+					background-color: #00E676
+				a:first-child, a:nth-child(2), a:nth-child(3) 
+					transform: scaleX(0)
+				a:first-child
+					transition: 0.5s
+				a:nth-child(2)
+					transition: 0.3s
+				a:nth-child(3)
+					transition: 0.1s
+				.menu-social__link
+					color: #1C7EBB
+					margin-right: 40px
+					font-size: 26px
+					background-color: #FFF
+					border-radius: 30px
+					height: 40px
+					width: 40px
+					text-align: center
+			.menu-social__active
+				transform: scaleX(1)
+				opacity: 1
+				a:first-child, a:nth-child(2), a:nth-child(3) 
+					transform-origin: right
+					transform: scaleX(1)
+		.menu-nav
+			display: flex
+			flex-flow: column nowrap
+			width: 150px
+			background-color: #FFF
+			transition: 0.3s
+			transform-origin: top center
+			transform: scaleY(0)
+			opacity: 0
+			.menu-nav__link:hover
+				color: #FFF
+				background: #1C7EBB
+			.menu-nav__link:first-child:hover
+				border-radius: 8px 0 0 0
+			.menu-nav__link:nth-child(5):hover
+				border-radius: 0 0 8px 8px
+			.menu-nav__link
+				display: inline-block
+				color: #1C7EBB
+				text-decoration: none
+				padding: 10px 0 10px 10px
+		.menu-nav__active
+			transform: scaleY(1)
+			opacity: 1
+			border-radius: 8px 0 8px 8px
+
+	.menu-btn
+		display: block
+		width: 40px
+		height: 40px
+		position: absolute
+		right: 0
+		span, span::before, span::after
+			position: absolute
+			top: 50%
+			margin-top: -1px
+			left: 50%
+			margin-left: -15px
+			width: 30px
+			height: 2px
+			background-color: #FFF
+		span::before, span::after
+			display: block
+			content: ''
+			transition: 0.3s   
+		span::before
+			transform: translateY(-5px)
+		span::after
+			transform: translateY(5px)
+	.menu-btn__active
+		background-color: #FFF
+		border-radius: 8px 8px 0 0
+		span
+			height: 0
+		span::before
+			transform: rotate(-135deg)
+			background-color: #1C7EBB
+		span::after
+			transform: rotate(135deg)
+			background-color: #1C7EBB
+
+// ------------finish menu-hamburger-----------------
+
+.top-line, .header-main, .s-swim-groups, .s-statement, .s-team, .s-levels, .s-photo-fon-up, .s-photo-fon-down, .s-desc-width, .main-footer
+	max-width: 1920px
+
+.top-line
+	display: flex
+	justify-content: space-between
+	width: 75%
+	margin: 0 auto
+	color: #FFF
+	ul
+		display: flex
+		margin: 0
+		padding: 10px 0
+		li
+			font-size: 15px
+			display: inline-flex
+			list-style: none
+			margin: 0 10px
+			a
+				color: #FFF
+				margin: auto
+	ul:first-child		
+		li img
+				width: 80px
+	ul:nth-child(2)
+			margin-left: 50px
+	ul:nth-child(3)
+		li:first-child
+			font-family: varela
+			font-size: 18px
+			margin: auto
+			letter-spacing: 1px
+			i
+				font-size: 15px
+				margin: 8px 5px 0 0
+		li:last-child
+			margin-left: 30px
+			i
+				padding: 0 15px 
+				font-size: 28px
+			.fa-instagram, .fa-whatsapp
+				border: 2px solid rgba(#FFF, 0.0001) 
+			.fa-vk
+				padding-top: 3px
+			i:hover
+				color: rgba(#4077B4, .8)
+				background-color: #FFF
+				border-radius: 7px			
+
+
+.header-main
+	width: 75%
+	margin: 90px auto
+	color: #FFF
+	.header-compasition
+		h1
+			color: #FFF
+			display: inline
+			font-weight: 400
+			font-size: 38px
+			letter-spacing: 2px
+			line-height: 1.5
+			text-transform: uppercase
+		p
+			line-height: 1.3
+		p:nth-child(2)
+			width: 450px
+		p:nth-child(3) 
+			width: 250px
+.button
+	margin-top: 20px 
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	box-shadow: 0 0 8px rgba(#FFF, .3)
+	padding: 15px 45px
+	font-size: 15px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 90px
+	text-align: center
+	background-color: #FB5600
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten(#FF8902, 5%)
+	&::after
+		opacity: .22
+	&:active
+		background-color: lighten(#FB5600, 5%)
+		text-shadow: 0 0 1px #FFF
+		box-shadow: none
+	&::after
+		opacity: .9
+
+
+.s-swim-groups
+	display: flex
+	flex-flow: column nowrap
+	width: 100%
+	margin: 40px auto 0
+	min-height: 920px
+	height: 100%
+	background: no-repeat center
+	background-size: cover
+	h2:nth-child(3)
+		margin-top: 30px
+	.swim-groups-width
+		width: 75%
+		margin: 0 auto
+h1, h2, h3
+	font-size: 24px
+	color: rgba($accent, .8)
+	text-transform: uppercase
+	letter-spacing: 1.5px
+	margin-bottom: 40px
+	span
+		font-weight: 600
+		color: $accent
+p
+	font-size: 14px
+
+.s-swim-head
+	display: flex
+	justify-content: space-between
+	flex-flow: row wrap
+	color: $accent
+	padding:
+		bottom: 30px
+		top: 10px
+	.why-swim
+		flex-basis: 250px
+		text-align: center
+		h4
+			text-transform: uppercase
+			margin-bottom: 14px
+		img
+			margin:
+				top: 10px
+				bottom: 20px
+	span
+		border-right: 1px solid rgba($accent, 0.8)
+		height: 140px
+		margin-top: 140px
+.swim-our-group
+	display: flex
+	justify-content: space-between
+	flex-flow: row wrap
+	padding: 40px 0
+	.our-group
+		display: flex
+		flex-direction: row
+		width: 540px
+		margin-bottom: 50px
+		border-radius: 30px
+		border: 0 solid
+		background-color: #FFF
+		box-shadow:  0 0 10px rgba(#000, .5)
+		.our-group-img
+			img
+				border-radius: 30px 0 0 30px
+		.our-group-text
+			text-align: left
+			padding: 0 20px
+			h4
+				margin: 0
+				color: $pourpur
+				padding-top: 15px
+				font-size: 18px
+				line-height: 1.4
+				letter-spacing: 2px
+			p
+				color: $accent
+				line-height: 1.4
+				margin: 0
+				padding: 8px 0
+			.button
+				margin-top: 10px 
+				box-shadow: 0 0 10px rgba(#000, .5)
+				padding: 8px 20px
+				font-size: 14px
+				background-color: #7573D8
+				&:hover
+					background: #67A0D5
+				&:active
+					background-color: lighten(#7573D8, 5%)
+
+
+.s-statement
+	display: flex
+	flex-wrap: column nowrap
+	width: 100%
+	height: 100%
+	margin: 0 auto
+	background: no-repeat center
+	background-size: cover
+	min-height: 360px
+	.state-width
+		display: flex
+		flex-flow: row nowrap
+		justify-content: space-between
+		width: 75%
+		margin: auto
+		.state-item
+			width: 350px
+			color: rgba(#FFF, .6)
+			h2
+				color: #FFF
+				font-weight: 300
+				margin-bottom: 20px
+				color: rgba(#FFF, .8)
+				span
+					color: #FFF
+			p 
+				color: rgba(#FFF, .8)
+				span
+					text-transform: uppercase
+			.form
+				label
+					input
+						border-radius: 15px
+						height: 35px
+						width: 250px
+			.form-select
+				position: relative
+				select 
+					-webkit-appearance: none // для всех браузеров, можно написать appearance: none
+  			  -moz-appearance: none
+					background-color: #FFF
+					border-radius: 15px
+					height: 35px
+					color: rgba(#000, .5)
+					width: 250px
+					option
+						color: rgba(#000, 0.8)
+				select:hover
+   				cursor: pointer
+				select:focus
+   			 border-color: $pourpur
+		.state-item:last-child
+			.button
+				padding: 7px 35px
+				font-size: 14px
+				margin-top: 34px
+
+.form-select:after
+	position: absolute
+	content: ""
+	background-color: #FFF
+	border-style: solid
+	border-width: 5px 5px 0 5px
+	border-color: $pourpur transparent transparent transparent
+	pointer-events: none
+	top: 50%
+	right: 110px
+	z-index: 1
+	margin-top: -2px			
+
+
+.s-team
+	display: flex
+	flex-wrap: column nowrap
+	width: 100%
+	height: 100%
+	margin: 0 auto
+	min-height: 450px
+
+	.team-width
+		display: flex
+		flex-flow: column
+		justify-content: space-between
+		width: 75%
+		margin: 0 auto
+		height: auto
+		.team-h2
+			margin: 0
+		.team-h2-2
+			margin-top: 60px
+
+		.team-item-foto
+			width: auto
+			height: 300px
+			.team-item-prof
+				display: flex
+				justify-content: center
+				.team-img
+					margin-left: auto
+				.team-item-prof-text
+					margin: 0 auto 0 30px
+					h2
+						margin: 
+							top: 40px
+							bottom: 20px 
+						color: $pourpur
+					p
+						line-height: 1.4
+						width: 450px
+						color: $accent
+
+			.team-item-prof-2
+				display: flex
+				justify-content: center
+				flex-flow: column nowrap
+				width: 100%
+				.team-i
+					display: inline-block
+					height: 50px
+					width: 75%
+					margin: 0 auto
+					p
+						width: 100%
+						text-align: center
+						height: 50px
+						margin: 0
+						font-family: 'Times New Roman', serif
+						font-weight: bold
+						letter-spacing: -2px
+						font-size: 56px
+						line-height: 0
+						color: $pourpur
+						transform: rotate(180deg)
+				.team-item-text
+					text-align: center
+					width: 75%
+					margin: 0 auto
+					h3
+						font-size: 18px
+						margin: 20px 0 40px 0
+					p
+						color: $accent
+
+		.team-prof-image
+			display: flex
+			justify-content: space-evenly
+			flex-flow: row nowrap
+			max-width: 75%
+			height: auto
+			margin: 0 auto 40px
+			h4
+				margin: 10px 0
+				text-align: center
+				color: $accent
+				line-height: 1.4
+			span
+				border-top: 1px solid rgba($accent, 0.8)
+				width: 15px
+				margin: 60px 10px
+
+.fotorama
+	&__stage::before, &__stage::after
+		display: none
+	&__arr
+		margin-top: -100px
+	&__arr-
+		&-next, &-prev
+			&::before
+				font-family: fontawesome
+				font-size: 40px
+				color: $pourpur
+		&-next
+			&::before
+				content: '\f054'
+				background-color: rgba(#FFF, 0.5)
+		&-prev
+			&::before
+				content: '\f053'
+				background-color: rgba(#FFF, 0.5)
+	&__nav-wrap
+		display: none
+		position: absolute
+		.fotorama__nav__shaft
+			.fotorama__nav__frame
+				width: 40px
+				.fotorama__dot
+					padding: 1px
+					border-radius: 180px
+					height: 6px
+					width: 6px
+					border-color: $accent
+.fotorama__nav__frame.fotorama__active .fotorama__dot
+	background-color: $accent
+	border-width: 4px
+
+
+.s-description-team
+	width: 100%
+	height: auto
+	margin: 0 auto
+	min-height: 215px
+	background: no-repeat center
+	background-size: cover
+	.s-desc-width
+		width: 50%
+		height: 100%
+		display: flex
+		margin: 0 auto
+		align-items: center
+		.s-desc-text
+			display: block
+			text-align: center
+			width: 100%
+			p
+				color: #FFF
+				font-size: 16px
+				line-height: 1.4
+
+
+.s-levels
+	display: flex
+	flex-flow: row wrap
+	align-content: space-between
+	width: 100%
+	min-height: 850px
+	margin: 0 auto
+	background: no-repeat center
+	background-size: cover
+	.levels-width
+		display: flex
+		flex-flow: column wrap
+		width: 75%
+		height: auto
+		margin: 0 auto
+		h2
+			margin:
+				top: 40px
+				bottom: 40px
+		.levels-item-four
+			display: flex
+			flex-flow: row wrap
+			justify-content: space-evenly
+			.levels-item
+				img
+					width: 165px
+				h4
+					text-align: center
+					margin: 0
+					color: $accent
+					padding-top: 15px
+					font-size: 18px
+					line-height: 1.4
+					letter-spacing: 2px
+					text-transform: uppercase
+			.span	
+				display: flex
+				height: auto
+				width: 15px
+				align-items: center
+				justify-content: center
+				margin-top: -40px
+				span
+					font-family: fontawesome
+					font-size: 24px
+					font-weight: 400
+					color: $pourpur
+					&::before
+						content: '\f054'
+	.levels-text-main
+		display: flex
+		flex-flow: column nowrap
+		justify-content: center
+		margin: 0 auto
+		width: 50%
+		.level-text-main-width
+			display: flex
+			flex-flow: column wrap
+			justify-content: space-around
+			width: 100%
+			text-align: center
+			min-height: 440px
+			margin: 100px 0 0 0
+			h2, p
+				margin: 0
+			p
+				margin-bottom: 40px
+				color: $accent
+			h2:nth-child(3)
+				line-height: 1.4
+				color: #FFF
+				
+.s-photo
+	.s-photo-fon-up, .s-photo-fon-down
+		position: relative
+		z-index: 2
+		margin: 0 auto
+		width: 100%
+		background-color: $dark
+		background: no-repeat center
+		background-size: cover
+	.s-photo-fon-up
+		height: 86px
+		margin-top: -10px
+		margin-bottom: -82px
+	.s-photo-fon-down
+		height: 180px
+		margin-top: -62px
+		display: flex
+		align-items: center
+		.s-photo-fon-down-text
+			display: inline-block
+			text-align: center
+			width: 100%
+			margin: 50px 0 0
+			h2
+				color: #FFF
+				margin: 0
+				line-height: 1.2
+	.carousel-photo
+		background-color: $dark
+		&-item:hover
+			img
+				opacity: 1
+		&-item
+			img
+				opacity: .9
+				transition: opacity .5s ease
+
+	.owl-nav
+		position: absolute
+		display: flex
+		justify-content: space-between
+		top: 100px
+		width: 100%
+		> button
+			width: 64px
+			height: 64px
+			background-color: $dark
+			i
+				font-size: 46px
+				color: #FFF
+				margin: 0 10px
+
+.owl-carousel
+	position: relative
+	height: auto
+
+
+footer
+	margin-top: -61px
+	width: 100%
+	.main-footer
+		width: 75%
+		display: flex
+		justify-content: space-between
+		margin: 10px auto
+
+		.footer-contacts
+			max-width: 350px
+			width: 100%
+			margin: auto 10px auto 0
+			background-color: #FFF
+			max-height: 340px
+			h2
+				margin-bottom: 10px
+			ul
+				display: flex
+				flex-flow: column nowrap
+				margin: 0
+				padding: 10px 0
+				color: $accent
+				li
+					font-size: 15px
+					list-style: none
+					margin: 10px 0
+					line-height: 1.4
+					a
+						color: $accent
+					a:hover
+						color: $pourpur
+					i
+						color: $pourpur
+						margin-right: 7px
+				li:first-child
+					font-family: varela
+					font-size: 20px
+					i
+						font-size: 16px
+						margin-right: 10px
+		.map
+			display: block
+			width: 100%
+			max-width: 750px
+			min-width: 300px
+			min-height: 340px
+			margin: 50px auto 40px auto
+			max-height: 340px
+			border: 1px solid $pourpur
+
+
+.up-up
+	position: fixed
+	bottom: 40px
+	right: -100px
+	z-index: 10
+	border-radius: 10em
+	font-size: 26px
+	width: 50px
+	height: 50px
+	text-align: center
+	line-height: 50px
+	cursor: pointer
+	color: #FFF
+	background-color: $pourpur
+	transition: all .3s ease
+	opacity: .7
+	&:hover
+		opacity: 1
+	&.active
+		right: 30px
+
+@import "media" // Always at the end

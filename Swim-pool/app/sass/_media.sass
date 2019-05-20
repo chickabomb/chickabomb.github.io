@@ -1,0 +1,376 @@
+@import "vars"
+
+@media screen and (max-width: 1550px)
+
+	.top-line, .header-main, .s-swim-groups>.swim-groups-width, .s-statement>.state-width, footer>.main-footer
+		width: 82%
+
+@media screen and (max-width: 1350px)
+
+	.top-line
+		width: 90%
+		ul:nth-child(3)
+			li:last-child
+				margin: 0 50px 0 5px
+	.header-main, .s-swim-groups>.swim-groups-width, .s-statement>.state-width
+		width: 90%
+
+	.s-levels>.levels-text-main
+		width: 60%
+
+@media screen and (max-width: 1220px)
+
+	.top-line
+		ul:nth-child(2)
+			margin-left: 20px
+		ul:nth-child(3)
+			li:first-child
+				font-size: 14px
+				padding-top: 4px
+				i
+					font-size: 13px
+					margin: 4px 5px 0 0
+	.swim-our-group
+		.our-group
+			width: 505px
+			.our-group-text
+				padding: 0 5px
+				h4
+					padding-top: 15px
+					font-size: 18px
+					line-height: 1.4
+					letter-spacing: 2px
+				p
+					padding: 8px 0
+
+@media screen and (max-width: 1136px)
+	
+	.top-line
+		width: 95%
+		ul:nth-child(2)
+			margin-left: 0
+	.header-main, .s-swim-groups>.swim-groups-width, .s-statement>.state-width, .s-team>.team-width, footer>.main-footer
+		width: 95%
+	
+@media screen and (max-width: 1080px)
+
+	.s-menu
+		display: block
+
+	.top-line
+		justify-content: flex-start
+		ul:nth-child(2)
+			display: none
+		ul:nth-child(3)
+			margin: 0 auto
+				right: 190px
+			li:first-child
+				margin-right: 150px
+				font-size: 18px
+				padding-top: 0
+				i
+					font-size: 15px
+					margin-top: 8px
+			li:last-child
+				display: none
+	
+	.swim-groups-width
+		h2:nth-child(3)
+			margin-left: 30px
+		.swim-our-group
+			width: 95%
+			justify-content: center
+		
+	.s-swim-head
+		justify-content: space-around
+		.why-swim
+			flex-basis: 350px
+		span:nth-child(4)
+			display: none
+			
+
+	.s-statement
+		background-image: url(../img/st2.jpg) !important
+		.state-width
+			flex-flow: row wrap
+			width: 85%
+			.state-item:first-child
+				width: 600px
+				p
+					width: 350px
+			.state-item:nth-child(3)
+				width: 260px
+	.form-select:after
+		right: 20px
+	
+	.team-prof-image
+		width: auto
+		span
+			display: none
+		.team-prof-image-item>img
+			width: 90px
+
+
+	.s-levels
+		.s-description-team
+			.s-desc-width
+				width: 90%
+				margin-top: 10px
+		.levels-width
+			width: 90%
+			.levels-item-four
+				justify-content: space-between
+				.levels-item
+					img
+						width: 140px
+					h4
+						font-size: 14px
+
+
+@media screen and (max-width: 768px)
+	
+	.top-line
+		justify-content: flex-start
+		ul:nth-child(3)
+			margin: 0
+				left: 25px
+
+	.s-swim-head
+		.why-swim
+			flex-basis: 260px
+			h4
+				font-size: 14px
+			img
+				width: 90px
+		span
+			height: 140px
+			margin-top: 95px
+
+	.swim-groups-width
+		h2:nth-child(3)
+			margin-top: 40px
+	.swim-our-group
+		padding-bottom: 0
+		.our-group
+			width: 550px
+			.our-group-text
+				padding: 0 20px
+				h4
+					padding-top: 15px
+					font-size: 18px
+					line-height: 1.4
+					letter-spacing: 2px
+				p
+					padding: 8px 0
+
+	.s-statement
+		.state-width
+			.state-item:nth-child(2), .state-item:nth-child(3)
+				width: 255px
+
+	.s-team
+		.team-width
+			.team-prof-image
+				display: none
+			.team-item-foto
+				height: 320px
+				.team-item-prof				
+					.team-img
+						margin-left: 0
+						text-align: center
+					.team-item-prof-text
+						h2
+							margin-top: 10px
+							font-size: 20px
+						p
+							width: auto
+				.team-item-prof-2
+					.team-i
+						width: 90%
+					.team-item-text
+						width: 90%
+
+
+	.s-levels
+		background-image: url(../img/lev2.jpg) !important
+		.levels-width
+			margin-bottom: 50px
+			.levels-item-four
+				flex-flow: column wrap
+				align-items: center
+				margin: auto
+				.levels-item
+					img
+						width: 165px
+				.span
+					margin: 20px 0
+					span::before
+						content: '\f078'
+		.levels-text-main
+			width: 90%
+			.level-text-main-width
+				min-height: 450px
+				p
+					margin-bottom: 70px
+				h2:nth-child(3)
+					padding-bottom: 30px
+
+	.fotorama__nav-wrap
+		display: initial
+		bottom: 30px
+
+	.s-menu>.menu-main>.menu-social-btn>.menu-social>.menu-social__link
+		margin-right: 30px
+@media screen and (max-width: 620px)
+	
+	.top-line
+		justify-content: space-between
+		ul:nth-child(3)
+			margin:
+				top: -60px
+				left: auto
+			li:first-child
+				margin-right: 15px
+	.s-menu>.menu-main>.menu-social-btn>.menu-social>.menu-social__link
+		margin-right: 40px
+
+	.site-header
+		max-height: 600px
+	.header-main
+		.header-compasition
+			h1
+				font-size: 24px
+				letter-spacing: 1px
+			p
+				margin-top: 15px
+				line-height: 1.3
+			p:nth-child(2)
+				width: 290px
+			p:nth-child(3) 
+				width: 220px
+	
+	.swim-groups-width
+		h2:nth-child(3)
+			margin-left: 0
+	.s-swim-head
+		.why-swim
+			flex-basis: 300px
+		span:nth-child(4)
+			display: inline
+		span
+			border-right: none
+			border-top: 1px solid rgba($accent, 0.8)
+			height: 0
+			width: 200px
+			margin: 10px 50px
+
+	.swim-groups-width
+		.swim-our-group	
+			justify-content: center
+			margin-left: 6px
+			.our-group
+				flex-direction: column
+				width: 290px
+				height: 570px
+				.our-group-img
+					img
+						width: 290px
+						border-radius: 30px 30px 0 0
+
+	.s-statement
+		min-height: 700px
+		background-image: url(../img/st3.jpg) !important
+		.state-width
+			width: 95%
+			justify-content: center
+			.state-item:nth-child(2), .state-item:nth-child(3)
+				width: 300px
+	.form-select:after
+		right: 65px
+
+	.s-team
+		.team-width
+			.team-item-foto
+				height: 420px
+				.team-item-prof
+					display: flex
+					flex-flow: column wrap
+					.team-img
+						img
+							width: 180px
+					.team-item-prof-text
+						margin: 0
+						h2
+							text-align: center
+							margin: 10px 0 10px 0
+							font-size: 20px
+						p
+							margin: 0
+							width: auto
+	.fotorama
+		&__arr
+			margin-top: -70px
+
+	.s-description-team>.s-desc-width
+		width: 95%
+
+	.s-description-team>.s-desc-width>.s-desc-text>p
+		font-size: 14px
+	
+	.s-levels
+		.levels-text-main
+			width: 95%
+			.level-text-main-width
+				margin-top: 50px
+				min-height: 400px
+				h2
+					font-size: 22px
+					margin: 0
+
+	footer
+		.main-footer
+			flex-flow: column nowrap
+			.footer-contacts
+				width: 260px
+				ul>li
+					margin-top: 5px
+			.map
+				margin-top: 10px
+
+@media screen and (max-width: 478px)
+	
+
+	.s-menu>.menu-main>.menu-social-btn>.menu-social>.menu-social__link
+		margin-right: 13px
+
+	.s-statement>.state-width>.state-item:first-child>p
+		width: auto
+
+	.s-levels>.levels-text-main>.level-text-main-width>
+		h2
+			font-size: 20px
+		p
+			margin-bottom: 70px
+
+	.s-description-team
+		.s-desc-width
+			width: 95%
+			margin-top: 40px
+
+	.s-photo>.owl-carousel>.owl-nav>button
+		width: 48px
+		height: 48px
+		i
+			font-size: 30px
+
+	.s-photo-fon-down-text>h2
+		font-size: 20px
+
+	.fotorama__nav-wrap
+		display: initial
+		bottom: -30px
+
+@media screen and (max-width: 360px)
+
+	.site-header
+		background-image: url(../img/mobile/bg.jpg) !important
